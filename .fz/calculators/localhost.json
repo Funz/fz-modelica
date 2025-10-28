@@ -1,0 +1,6 @@
+{
+    "uri": "sh://",
+    "models": {
+      "Modelica":"bash .fz/calculators/Modelica.sh"
+    }
+}
