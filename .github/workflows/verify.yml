@@ -1,0 +1,40 @@
+name: Verify Plugin Structure
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9'
+        
+    - name: Run verification script
+      run: |
+        python3 tests/verify_installation.py
+        
+    - name: Validate JSON files
+      run: |
+        echo "Validating JSON files..."
+        python3 -m json.tool .fz/models/Modelica.json > /dev/null
+        python3 -m json.tool .fz/calculators/localhost.json > /dev/null
+        echo "✓ All JSON files are valid"
+        
+    - name: Check shell script syntax
+      run: |
+        echo "Checking shell script syntax..."
+        bash -n .fz/calculators/Modelica.sh
+        echo "✓ Shell script syntax is valid"
