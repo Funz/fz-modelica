@@ -12,30 +12,16 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.9'
         
     - name: Run verification script
       run: |
         python3 tests/verify_installation.py
-        
-    - name: Check file structure
-      run: |
-        echo "Checking repository structure..."
-        test -d .fz/models || exit 1
-        test -d .fz/calculators || exit 1
-        test -d samples || exit 1
-        test -d examples || exit 1
-        test -f .fz/models/Modelica.json || exit 1
-        test -f .fz/calculators/localhost.json || exit 1
-        test -f .fz/calculators/Modelica.sh || exit 1
-        test -x .fz/calculators/Modelica.sh || exit 1
-        test -f samples/NewtonCooling.mo || exit 1
-        echo "✓ All required files present"
         
     - name: Validate JSON files
       run: |

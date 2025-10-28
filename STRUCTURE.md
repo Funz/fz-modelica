@@ -39,7 +39,7 @@ fz-modelica/
 ### Configuration Files (.fz/)
 
 - **`.fz/models/Modelica.json`**: Defines how to parse Modelica files and extract outputs
-  - Variable syntax: `${variable_name}`
+  - Variable syntax: `${variable_name}` or `${variable_name~default_value}`
   - Output parsing: Python command to read CSV results
   
 - **`.fz/calculators/localhost.json`**: Defines local calculator
@@ -117,13 +117,13 @@ All examples are executable Python scripts:
 
 | Type           | Count | Total Lines |
 |----------------|-------|-------------|
-| Configuration  | 3     | ~50         |
-| Documentation  | 5     | ~1000       |
+| Configuration  | 3     | 51          |
+| Documentation  | 5     | 1006        |
 | Samples        | 1     | 15          |
-| Examples       | 3     | ~100        |
-| Tests          | 1     | ~160        |
-| CI/CD          | 1     | ~50         |
-| **Total**      | **14**| **~1375**   |
+| Examples       | 3     | 104         |
+| Tests          | 1     | 163         |
+| CI/CD          | 1     | 51          |
+| **Total**      | **14**| **~1390**   |
 
 ## Key Features
 
