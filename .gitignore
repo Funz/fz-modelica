@@ -35,6 +35,8 @@ coverage.xml
 *_info.json
 *_init.xml
 *.mat
+*.csv
+*_res.*
 *.fmtmp/
 
 # Results and output directories

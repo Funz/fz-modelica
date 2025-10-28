@@ -60,8 +60,8 @@ def main():
     dirs = [
         ".fz/models",
         ".fz/calculators",
-        "samples",
-        "examples"
+        "examples",
+        "tests"
     ]
     for d in dirs:
         all_checks_passed &= check_file_exists(d, f"Directory {d}")
@@ -91,21 +91,15 @@ def main():
         all_checks_passed &= check_executable(calc_script, "Calculator script")
     print()
     
-    # Check sample files
-    print("Checking sample files...")
-    sample_file = "samples/NewtonCooling.mo"
-    all_checks_passed &= check_file_exists(sample_file, "Sample Modelica model")
-    print()
-    
-    # Check example scripts
-    print("Checking example scripts...")
-    examples = [
-        "examples/run_single.py",
-        "examples/run_parametric.py",
-        "examples/run_with_cache.py"
+    # Check example notebooks
+    print("Checking example notebooks...")
+    notebooks = [
+        "examples/01_NewtonCooling_Parametric.ipynb",
+        "examples/02_ProjectileMotion_Parametric.ipynb",
+        "examples/03_ProjectileMotion_Advanced.ipynb"
     ]
-    for ex in examples:
-        all_checks_passed &= check_file_exists(ex, f"Example {os.path.basename(ex)}")
+    for nb in notebooks:
+        all_checks_passed &= check_file_exists(nb, f"Notebook {os.path.basename(nb)}")
     print()
     
     # Check documentation
@@ -148,8 +142,8 @@ def main():
         print("Plugin is properly configured!")
         print("Next steps:")
         print("  1. Install OpenModelica (see INSTALL_OPENMODELICA.md)")
-        print("  2. Install fz framework: pip install funz-fz")
-        print("  3. Run examples: python examples/run_single.py")
+        print("  2. Install dependencies: pip install funz-fz pandas jupyter matplotlib scipy")
+        print("  3. Run notebooks: jupyter notebook examples/")
         return 0
     else:
         print("✗ SOME CHECKS FAILED")

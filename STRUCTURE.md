@@ -15,16 +15,13 @@ fz-modelica/
 │       ├── localhost.json                # Local calculator configuration
 │       └── Modelica.sh                   # Modelica execution script (executable)
 │
-├── samples/                              # Sample Modelica models
-│   └── NewtonCooling.mo                  # Newton's law of cooling example
-│
-├── examples/                             # Example usage scripts
-│   ├── run_single.py                     # Run single case example
-│   ├── run_parametric.py                 # Run parametric study example
-│   └── run_with_cache.py                 # Run with cache example
+├── examples/                             # Example Jupyter notebooks
+│   ├── 01_NewtonCooling_Parametric.ipynb    # Introduction to parametric studies
+│   ├── 02_ProjectileMotion_Parametric.ipynb # Physics simulations & analysis
+│   └── 03_ProjectileMotion_Advanced.ipynb   # 2D parameter space & optimization
 │
 ├── tests/                                # Testing utilities
-│   └── verify_installation.py            # Verification script
+│   └── verify_installation.py            # Plugin structure verification script
 │
 ├── .gitignore                            # Git ignore rules
 ├── CONTRIBUTING.md                       # Contribution guidelines
@@ -52,20 +49,32 @@ fz-modelica/
   - Runs OpenModelica compiler (omc)
   - Detects errors
 
-### Sample Files (samples/)
+### Example Notebooks (examples/)
 
-- **`samples/NewtonCooling.mo`**: Example model demonstrating:
-  - Parameter with variable: `h=${convection~0.7}`
-  - Default value syntax
-  - Physical modeling
+Comprehensive Jupyter notebooks with embedded models, executable code, and visualizations:
 
-### Example Scripts (examples/)
+- **`01_NewtonCooling_Parametric.ipynb`**: Introduction to Funz-Modelica
+  - Creates Newton's cooling model with parametric convection coefficient
+  - Single and parametric simulations
+  - Temperature curve visualization
+  - Cooling efficiency analysis
+  - ~150 lines of code + documentation
 
-All examples are executable Python scripts:
+- **`02_ProjectileMotion_Parametric.ipynb`**: Projectile motion physics
+  - Parametric projectile model (angle and velocity)
+  - Launch angle effects on trajectory
+  - Velocity effects on range
+  - Theoretical vs simulation validation
+  - Multiple visualizations and analysis plots
+  - ~200 lines of code + documentation
 
-- **`run_single.py`**: Run single case
-- **`run_parametric.py`**: Run multiple cases and plot results
-- **`run_with_cache.py`**: Demonstrate cache usage
+- **`03_ProjectileMotion_Advanced.ipynb`**: Advanced Funz features
+  - 2D parameter space exploration (velocity × angle grid)
+  - Contour plots and heatmaps
+  - Target hitting optimization
+  - Result caching demonstration
+  - Parameter interpolation
+  - ~250 lines of code + documentation
 
 ### Documentation
 
@@ -100,11 +109,12 @@ All examples are executable Python scripts:
 
 ### Testing
 
-- **`tests/verify_installation.py`**: Verification script
+- **`tests/verify_installation.py`**: Plugin structure verification
   - Checks directory structure
-  - Validates JSON files
-  - Checks executability
-  - Verifies configuration content
+  - Validates JSON configuration files
+  - Verifies script executability
+  - Confirms all required files present
+  - Does not require OpenModelica to run
 
 ### CI/CD
 
@@ -115,15 +125,14 @@ All examples are executable Python scripts:
 
 ## File Statistics
 
-| Type           | Count | Total Lines |
-|----------------|-------|-------------|
-| Configuration  | 3     | 51          |
-| Documentation  | 5     | 1006        |
-| Samples        | 1     | 15          |
-| Examples       | 3     | 104         |
-| Tests          | 1     | 163         |
-| CI/CD          | 1     | 51          |
-| **Total**      | **14**| **~1390**   |
+| Type           | Count | Total Lines/Cells |
+|----------------|-------|-------------------|
+| Configuration  | 3     | 51                |
+| Documentation  | 5     | ~900              |
+| Notebooks      | 3     | ~180 cells        |
+| Tests          | 1     | 165               |
+| CI/CD          | 1     | 51                |
+| **Total**      | **13**| **~1350**         |
 
 ## Key Features
 
