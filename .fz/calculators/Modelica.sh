@@ -25,7 +25,7 @@ fi
 
 # Check if the file is a .mos script or a .mo model
 if [ ! "${MO_FILE: -4}" == ".mos" ]; then
-  model=`grep "model" $MO_FILE | awk '{print $2}'`
+  model=`grep "model" $MO_FILE | awk '{print $2}' | head -n 1`
   cat > $MO_FILE.mos <<- EOM
 loadModel(Modelica);
 loadFile("$MO_FILE");
