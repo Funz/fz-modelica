@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Modelica/OpenModelica
+*.moo
+*.mos
+*.exe
+*.dll
+*.o
+*.so
+*.c
+*.h
+*.makefile
+*.log
+*.libs
+*_info.json
+*_init.xml
+*.mat
+*.fmtmp/
+
+# Results and output directories
+results/
+results_*/
+output/
+.fz/tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.directory
