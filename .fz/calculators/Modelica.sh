@@ -29,7 +29,7 @@ if [ ! "${MO_FILE: -4}" == ".mos" ]; then
   cat > $MO_FILE.mos <<- EOM
 loadModel(Modelica);
 loadFile("$MO_FILE");
-simulate($model, stopTime=1,tolerance=0.001,outputFormat="csv");
+simulate($model, outputFormat="csv");
 EOM
   omc $MO_FILE.mos > $MO_FILE.moo 2>&1 &
 else
